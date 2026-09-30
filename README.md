@@ -6,7 +6,7 @@ This library allows you to run standard D-Bus event loops directly inside a Boos
 
 ## Features
 
-- **Asynchronous & Non-blocking:** Integrates `sdbus-cpp` event processing cleanly into the Boost.Asio event loop.
+- **Asynchronous & Non-blocking:** Integrates [sdbus-cpp](https://github.com/Kistler-Group/sdbus-cpp) event processing cleanly into the Boost.Asio event loop.
 - **C++20 Coroutines:** Leverages `boost::asio::awaitable` and `co_await` for clean, linear asynchronous code structure.
 - **Efficient Resource Management:** Uses `boost::asio::posix::stream_descriptor` to asynchronously monitor D-Bus file descriptors (`fd`).
 - **Dual sdbus-cpp API Support:** Fully compatible with both older `sdbus-cpp` versions and the modern **v2.0+ API** (automatically handles separate poll data events via `SDBUS_2_0_API`).
