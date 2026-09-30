@@ -29,7 +29,7 @@ namespace Test {
         :
         AdaptorInterfaces(*conn, dbus_service_path),
 #endif
-          SDBus::AsioCoroConnector(std::move(conn)), signals_ {ioc_} {
+          SDBus::Asio::CoroConnector(std::move(conn)), signals_ {ioc_} {
         registerAdaptor();
     }
 

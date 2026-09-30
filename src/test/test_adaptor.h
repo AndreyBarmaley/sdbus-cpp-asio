@@ -25,7 +25,7 @@ namespace Test {
 
     using DBusConncetionPtr = std::unique_ptr<sdbus::IConnection>;
 
-    class SessionAdaptor : public sdbus::AdaptorInterfaces<org::sdbus_cpp::asio::service_adaptor>, protected SDBus::AsioCoroConnector {
+    class SessionAdaptor : public sdbus::AdaptorInterfaces<org::sdbus_cpp::asio::service_adaptor>, protected SDBus::Asio::CoroConnector {
         const int threads_ = 2;
         boost::asio::io_context ioc_{threads_};
         boost::asio::signal_set signals_;

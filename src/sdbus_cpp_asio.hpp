@@ -18,8 +18,8 @@
 
 #include <sdbus-c++/sdbus-c++.h>
 
-namespace SDBus {
-    class AsioCoroConnector {
+namespace SDBus::Asio {
+    class CoroConnector {
         std::unique_ptr<sdbus::IConnection> dbus_conn_;
         boost::asio::cancellation_signal sdbus_cancel_;
 
@@ -112,10 +112,10 @@ namespace SDBus {
         }
 
       public:
-        explicit AsioCoroConnector(std::unique_ptr<sdbus::IConnection> && ptr) : dbus_conn_{std::move(ptr)} {
+        explicit CoroConnector(std::unique_ptr<sdbus::IConnection> && ptr) : dbus_conn_{std::move(ptr)} {
         }
 
-        virtual ~AsioCoroConnector() {
+        virtual ~CoroConnector() {
             sdbus_cancel_.emit(boost::asio::cancellation_type::terminal);
         }
 
@@ -138,6 +138,6 @@ namespace SDBus {
         }
 
     };
-} // SDBus namespace
+} // SDBus::Asio namespace
 
 #endif // _SDBUS_CPP_ASIO_

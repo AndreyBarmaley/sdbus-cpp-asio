@@ -14,12 +14,12 @@ This library allows you to run standard D-Bus event loops directly inside a Boos
 ## Interface Overview
 
 ```cpp
-namespace SDBus {
-    class AsioCoroConnector {
+namespace SDBus::Asio {
+    class CoroConnector {
     public:
         // Takes ownership of a configured sdbus connection
-        explicit AsioCoroConnector(std::unique_ptr<sdbus::IConnection>&&);
-        virtual ~AsioCoroConnector();
+        explicit CoroConnector(std::unique_ptr<sdbus::IConnection>&&);
+        virtual ~CoroConnector();
 
         // Starts the asynchronous processing loop (should be co_awaited within an asio context)
         [[nodiscard]] boost::asio::awaitable<void> sdbusEventLoop(void);
@@ -40,7 +40,7 @@ To build and use this wrapper, you need:
 
 ## Quick Start Example
 
-Here is a basic example of how to initialize and run the `AsioCoroConnector` within a `boost::asio::io_context`:
+Here is a basic example of how to initialize and run the `SDBus::Asio::CoroConnector` within a `boost::asio::io_context`:
 
 ```cpp
 #include <iostream>
@@ -57,7 +57,7 @@ boost::asio::awaitable<void> runApp() {
         // ...
 
         // 2. Create the connector and pass ownership of the connection
-        SDBus::AsioCoroConnector connector(std::move(sdbusConnection));
+        SDBus::Asio::CoroConnector connector(std::move(sdbusConnection));
 
         std::cout << "D-Bus event loop is running via Boost.Asio coroutine..." << std::endl;
         
