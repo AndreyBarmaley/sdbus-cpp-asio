@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<node name="/org/sdbus_cpp/asio">
+    <interface name="org.sdbus_cpp.asio.service">
+        <method name="GetVersion">
+            <arg type="i" name="version" direction="out" />
+        </method>
+
+        <method name="ServiceShutdown">
+        </method>
+
+        <method name="TestJob">
+            <arg type="i" name="id" direction="in" />
+            <arg type="i" name="val" direction="in" />
+        </method>
+
+        <signal name="TestSignal">
+            <arg type="i" name="id" direction="in" />
+            <arg type="i" name="val" direction="in" />
+        </signal>
+    </interface>
+</node>
