@@ -76,8 +76,6 @@ namespace SDBus {
         }
 
         [[nodiscard]] boost::asio::awaitable<void> sdbusEventProcess(void) {
-            auto ex = co_await boost::asio::this_coro::executor;
-
             for(;;) {
                 /*
                     https://github.com/Kistler-Group/sdbus-cpp/blob/v2.2.0/docs/using-sdbus-c++.md#using-sdbus-c-in-external-event-loops
